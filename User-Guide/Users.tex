@@ -36,6 +36,13 @@
 %
 \usepackage{listings}
 %
+%  Setup indexes
+%
+\makeindex[name=type,title=List of Datatypes,columns=3]
+\newcommand{\indextype}[1]{\index[type]{#1}}
+\makeindex[name=func,title=List of Functions/Procedures,columns=3]
+\newcommand{\indexfunc}[1]{\index[func]{#1}}
+%
 % Macro definitions
 %
 \newcommand{\operation}[1]{\textbf{\texttt{#1}}}
@@ -140,12 +147,21 @@ This collection is currently available on \comment{location where project can be
 
 %========================================================
 \clearpage
+%
+%  Add indices
+%
+\addcontentsline{toc}{chapter}{Indices}
+\printindex[type]
+\printindex[func]
+%
+%  Add bibliography
+%
 \nocite{Ada95}
 \nocite{Ada2012}
 \nocite{Ada2022}
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{plain}
-\bibliography{Users.bib}
+\bibliography{devices.bib}
 \comment{This section can be omitted, if you have no bibliography.}
 
 \end{document}
